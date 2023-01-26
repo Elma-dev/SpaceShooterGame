@@ -1,6 +1,7 @@
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Sphere;
 import javafx.util.Duration;
 
@@ -9,7 +10,7 @@ import java.util.ResourceBundle;
 
 public class GameController implements Initializable {
     @FXML
-    Sphere Balle;
+    Circle Balle;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         /*TranslateTransition transition=new TranslateTransition();
