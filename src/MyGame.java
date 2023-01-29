@@ -40,8 +40,9 @@ public class MyGame extends Application {
             Random randomH=new Random();
 
             if(w<1000) {
-                System.out.println();
+
                 int y=randomH.nextInt(h);
+                System.out.println(h);
                 System.out.println(y);
                 BigEnimy e = new BigEnimy(randomW.nextInt(w - i * 120) + i * 120, y);
                 pane.getChildren().add(e.getEnimy());

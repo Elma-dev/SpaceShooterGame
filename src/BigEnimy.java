@@ -15,10 +15,10 @@ public class BigEnimy {
         imageView.setFitWidth(50);
         imageView.setX(x);
         imageView.setY(y);
+        this.flyTo();
     }
 
     public ImageView getEnimy(){
-        this.flyTo();
         return imageView;
 
     }
