@@ -10,6 +10,10 @@ public class Player {
     private Bombs bombs;
     private int score;
 
+    private int death;
+    private boolean destroyPlayer=false;
+    private ImageView deathSmook;
+
     public Player(int x,int y){
         playerImg=new Image("Images/spaceship.png");
         playerImgV=new ImageView(playerImg);
@@ -18,6 +22,8 @@ public class Player {
         playerImgV.setFitWidth(70);
         playerImgV.setFitHeight(70);
         score=0;
+        death=30;
+        deathSmook=null;
     }
 
     public ImageView newPlayer(){
@@ -30,7 +36,7 @@ public class Player {
     }
 
     public ImageView getBombs(double to) {
-        bombs=new Bombs(playerImgV.getX()+25,playerImgV.getY(),"Images/rocket.png");
+        bombs=new Bombs(playerImgV.getX()+25,playerImgV.getY(),"Images/rocket.png",1000);
         return bombs.newBombsTo(to);
     }
 
@@ -58,7 +64,35 @@ public class Player {
         return score;
     }
 
-    public void setScore() {
-        score +=10;
+    public void setScore(int s) {
+        score +=s;
+    }
+
+    public int getDeath() {
+        return death;
+    }
+
+    public void setDeath(int death) {
+        this.death -= death;
+    }
+
+    public boolean isDestroyPlayer() {
+        return destroyPlayer;
+    }
+
+    public void setDestroyPlayer() {
+        this.destroyPlayer = true;
+    }
+    public ImageView rocketDist(){
+        deathSmook=new ImageView("Images/rocketFire.png");
+        deathSmook.setFitHeight(50);
+        deathSmook.setFitWidth(50);
+        deathSmook.setX(playerImgV.getX());
+        deathSmook.setY(playerImgV.getY());
+        return deathSmook;
+    }
+
+    public ImageView getDeathSmook() {
+        return deathSmook;
     }
 }

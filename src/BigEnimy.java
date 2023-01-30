@@ -10,6 +10,7 @@ public class BigEnimy {
     private Bombs fire;
     private int death;
     private ImageView deathView;
+    private ImageView fireObjectView;
     public BigEnimy(int x,int y){
         image=new Image("Images/space-ship.png");
         imageView=new ImageView(image);
@@ -36,9 +37,13 @@ public class BigEnimy {
         transition.play();
     }
 
-    public ImageView getFire(int to) {
-        fire=new Bombs(imageView.getX()+10,imageView.getY()+25,"Images/fire.png");
-        return fire.newBombsTo(to);
+    public ImageView getFire(double to) {
+        fire=new Bombs(imageView.getX()+10,imageView.getY()+25,"Images/fire.png",2000);
+        fireObjectView=fire.newBombsTo(to);
+        return fireObjectView;
+    }
+    public Bombs getBombs(){
+        return fire;
     }
     public int getDeath(){
         return death;
@@ -53,4 +58,7 @@ public class BigEnimy {
         return deathView;
     }
 
+    public ImageView getFireObjectView() {
+        return fireObjectView;
+    }
 }
