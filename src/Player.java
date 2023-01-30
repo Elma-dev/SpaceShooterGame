@@ -5,9 +5,11 @@ import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 public class Player {
-    Image playerImg;
-    ImageView playerImgV;
-    Bombs bombs;
+    private Image playerImg;
+    private ImageView playerImgV;
+    private Bombs bombs;
+    private int score;
+
     public Player(int x,int y){
         playerImg=new Image("Images/spaceship.png");
         playerImgV=new ImageView(playerImg);
@@ -15,6 +17,7 @@ public class Player {
         playerImgV.setY(y);
         playerImgV.setFitWidth(70);
         playerImgV.setFitHeight(70);
+        score=0;
     }
 
     public ImageView newPlayer(){
@@ -28,7 +31,6 @@ public class Player {
 
     public ImageView getBombs(double to) {
         bombs=new Bombs(playerImgV.getX()+25,playerImgV.getY(),"Images/rocket.png");
-
         return bombs.newBombsTo(to);
     }
 
@@ -44,11 +46,19 @@ public class Player {
     }
 
     public void toRight(){
-        playerImgV.setX(playerImgV.getX()+20);
+        if(playerImgV.getX()<=920)
+            playerImgV.setX(playerImgV.getX()+20);
     }
     public void toLeft(){
-        playerImgV.setX(playerImgV.getX()-20);
+        if(playerImgV.getX()>=20)
+            playerImgV.setX(playerImgV.getX()-20);
     }
 
+    public int getScore() {
+        return score;
+    }
 
+    public void setScore() {
+        score +=10;
+    }
 }

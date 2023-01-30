@@ -8,6 +8,8 @@ public class BigEnimy {
     private Image image;
     private ImageView imageView;
     private Bombs fire;
+    private int death;
+    private ImageView deathView;
     public BigEnimy(int x,int y){
         image=new Image("Images/space-ship.png");
         imageView=new ImageView(image);
@@ -15,6 +17,8 @@ public class BigEnimy {
         imageView.setFitWidth(50);
         imageView.setX(x);
         imageView.setY(y);
+        death=50;
+        deathView=null;
         this.flyTo();
     }
 
@@ -36,4 +40,17 @@ public class BigEnimy {
         fire=new Bombs(imageView.getX()+10,imageView.getY()+25,"Images/fire.png");
         return fire.newBombsTo(to);
     }
+    public int getDeath(){
+        return death;
+    }
+    public ImageView setDeath(){
+
+        deathView=Life.getLife(imageView.getX()-50,imageView.getY()-10,death);
+        this.death-=10;
+        return deathView;
+    }
+    public ImageView destroyDeathView(){
+        return deathView;
+    }
+
 }

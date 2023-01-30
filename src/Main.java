@@ -142,8 +142,6 @@ public class Main extends Application implements Initializable {
                     if(!enemyBullets.isEmpty())
                         System.out.println(enemyBullets.get(0).getLayoutX());
                     System.out.println(bullet.getLayoutY());
-                    //System.out.println(rectangle.getTranslateX());
-                    //System.out.println(bullet.getTranslateX()==rectangle.getTranslateX());
 
 
 
