@@ -128,12 +128,6 @@ public class MyGame extends Application {
         menu.setLayoutY(-1);
         pane.getChildren().add(menu);
 
-        //ImageView heart=new ImageView("Images/heart.png");
-        //            heart.setFitWidth(30);
-        //            heart.setFitHeight(30);
-        //            heart.setX(120+30*i);
-        //            heart.setY(-1);
-        //            hearts.add(heart);
 
         //create Enimies
         ArrayList<BigEnimy> bigEnimies=new ArrayList<>();
@@ -190,8 +184,9 @@ public class MyGame extends Application {
                                 if(p1.getScore()>0)
                                     p1.setScore(-10);
                                 p1.setDeath(10);
-                                System.out.println(p1.getDeath()/10);
-                                hearts.get(p1.getDeath()/10).setImage(new Image("Images/wheart.png"));
+                                try {
+                                    hearts.get(p1.getDeath() / 10).setImage(new Image("Images/wheart.png"));
+                                }catch(Exception e){}
                                 pane.getChildren().add(p1.rocketDist());
 
                                 if (p1.getDeath() < 10) {
@@ -233,8 +228,11 @@ public class MyGame extends Application {
                                 if(p1.getScore()>0)
                                     p1.setScore(-10);
                                 p1.setDeath(10);
-                                System.out.println(p1.getDeath()/10);
-                                hearts.get(p1.getDeath()/10).setImage(new Image("Images/wheart.png"));
+
+                                try {
+                                    hearts.get(p1.getDeath() / 10).setImage(new Image("Images/wheart.png"));
+                                }catch(Exception e){}
+
 
                                 pane.getChildren().add(p1.rocketDist());
 
@@ -282,9 +280,10 @@ public class MyGame extends Application {
                                 if(p1.getScore()>0)
                                     p1.setScore(-10);
                                 p1.setDeath(10);
-                                System.out.println(p1.getDeath()/10);
-                                hearts.get(p1.getDeath()/10).setImage(new Image("Images/wheart.png"));
-                                System.out.println(p1.getDeath());
+
+                                try {
+                                    hearts.get(p1.getDeath() / 10).setImage(new Image("Images/wheart.png"));
+                                }catch(Exception e){}
                                 if (p1.getDeath() < 10) {
                                     pane.getChildren().remove(p);
                                     p1.setDestroyPlayer();
@@ -316,7 +315,7 @@ public class MyGame extends Application {
                             p1.setScore(10);
 
                         }
-                        //System.out.println(p1.getScore());
+
                     }
                     if (index != -1) {
                         int finalIndex = index;
