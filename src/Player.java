@@ -87,8 +87,8 @@ public class Player {
         deathSmook=new ImageView("Images/rocketFire.png");
         deathSmook.setFitHeight(50);
         deathSmook.setFitWidth(50);
-        deathSmook.setX(playerImgV.getX());
-        deathSmook.setY(playerImgV.getY());
+        deathSmook.setX(playerImgV.getX()+10);
+        deathSmook.setY(playerImgV.getY()-20);
         return deathSmook;
     }
 
